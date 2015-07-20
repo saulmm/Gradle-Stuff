@@ -9,8 +9,6 @@ android {
         applicationId     basePackageName
         minSdkVersion     androidMinSdkVersion
         targetSdkVersion  androidSdkVersion
-        versionCode       1
-        versionName       "1.0"
     }
 
     buildTypes {
@@ -23,7 +21,9 @@ android {
     productFlavors.whenObjectAdded { flavor ->
 
         def flavorData             = rootProject.ext[flavor.name]
-        flavor.applicationId       paid.packageName
+        flavor.applicationId       flavorData.packageName
+        flavor.versionCode         flavorData.versionCode
+        flavor.versionName         flavorData.versionNAme
         flavor.buildConfigField    'boolean',  fieldShowAds,     flavorData.showAds
         flavor.resValue            'string',   resAppName,       flavorData.appName
         flavor.resValue            'color',    resAppColorName,  flavorData.appColor
