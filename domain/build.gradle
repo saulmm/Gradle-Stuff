@@ -1,5 +1,7 @@
 apply plugin: 'java'
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  def domainDependencies  = rootProject.ext.domainDependencies
+  compile   domainDependencies.rxJava
 }

@@ -20,5 +20,12 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  def presentationDependencies  = rootProject.ext.presentationDependencies
+  compile   presentationDependencies.butterKnife
+  compile   presentationDependencies.recyclerView
+  compile   presentationDependencies.appCompat
+  compile   presentationDependencies.supportAnnotation
+  compile   presentationDependencies.rxAndroid
+  compile   presentationDependencies.rxJava
 }
