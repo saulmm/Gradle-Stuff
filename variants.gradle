@@ -1,0 +1,65 @@
+ext {
+
+    basePackageName   = 'saulmm.gradlestuff'
+    resAppColorName   = 'build_brand_primary'
+    resAppName        = 'build_app_name'
+    fieldShowAds      = 'ADS'
+
+
+    paid =  [
+
+        packageName   : "${basePackageName}.premium",
+        appName       : "Gradle Stuff Premium",
+        appColor      : "#F44336",
+        showAds       : "false"
+
+    ]
+
+    free =  [
+
+        packageName   : "${basePackageName}.free",
+        appName       : "Gradle Stuff",
+        appColor      : "#4CAF50",
+        showAds       : "true"
+    ]
+
+    promo = [
+
+        packageName   : "${basePackageName}.promo",
+        appName       : "Gradle Stuff Demo",
+        appColor      : "#9C27B0",
+        showAds       : "true"
+    ]
+
+    christmas = [
+
+        packageName   : "${basePackageName}.christmas",
+        appName       : "Gradle Stuff Christmas!",
+        appColor      : "#3C07B0",
+        showAds       : "false"
+    ]
+
+    halloween = [
+
+        packageName   : "${basePackageName}.halloween",
+        appName       : "Gradle Stuff Halloween!",
+        appColor      : "#3C03B0",
+        showAds       : "false"
+    ]
+
+    easter = [
+
+        packageName   : "${basePackageName}.easter",
+        appName       : "Gradle Stuff Easter!",
+        appColor      : "#3C03B0",
+        showAds       : "false"
+    ]
+
+    independence = [
+
+        packageName   : "${basePackageName}.independence",
+        appName       : "Gradle Stuff Independence!",
+        appColor      : "#0C33B0",
+        showAds       : "false"
+    ]
+}

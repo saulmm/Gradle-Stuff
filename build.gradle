@@ -1,7 +1,11 @@
 apply from: 'dependencies.gradle'
+apply from: 'variants.gradle'
+
+ext.androidMinSdkVersion   = 21
+ext.androidSdkVersion      = 22
+ext.androidToolsVersion    = "23.0.0 rc3"
 
 buildscript {
-
 
   repositories {
     jcenter()
@@ -10,6 +14,7 @@ buildscript {
   dependencies {
 
     classpath 'com.android.tools.build:gradle:1.2.3'
+
   }
 }
 

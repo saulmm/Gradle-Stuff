@@ -1,31 +1,59 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 22
-  buildToolsVersion "23.0.0 rc3"
+    compileSdkVersion   androidSdkVersion
+    buildToolsVersion   androidToolsVersion
 
-  defaultConfig {
-    applicationId "saulmm.gradlestuff"
-    minSdkVersion 21
-    targetSdkVersion 22
-    versionCode 1
-    versionName "1.0"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    defaultConfig {
+
+        applicationId     basePackageName
+        minSdkVersion     androidMinSdkVersion
+        targetSdkVersion  androidSdkVersion
+        versionCode       1
+        versionName       "1.0"
     }
-  }
+
+    buildTypes {
+
+        debug {
+            applicationIdSuffix   '.debug'
+        }
+    }
+
+    productFlavors.whenObjectAdded { flavor ->
+
+        def flavorData             = rootProject.ext[flavor.name]
+        flavor.applicationId       paid.packageName
+        flavor.buildConfigField    'boolean',  fieldShowAds,     flavorData.showAds
+        flavor.resValue            'string',   resAppName,       flavorData.appName
+        flavor.resValue            'color',    resAppColorName,  flavorData.appColor
+    }
+
+    productFlavors {
+
+        paid {}
+
+        free {}
+
+        promo {}
+
+        christmas {}
+
+        halloween {}
+
+        easter {}
+
+        independence {}
+    }
 }
 
 dependencies {
 
-  def presentationDependencies  = rootProject.ext.presentationDependencies
-  compile   presentationDependencies.butterKnife
-  compile   presentationDependencies.recyclerView
-  compile   presentationDependencies.appCompat
-  compile   presentationDependencies.supportAnnotation
-  compile   presentationDependencies.rxAndroid
-  compile   presentationDependencies.rxJava
+    def presentationDependencies  = rootProject.ext.presentationDependencies
+    compile   presentationDependencies.butterKnife
+    compile   presentationDependencies.recyclerView
+    compile   presentationDependencies.appCompat
+    compile   presentationDependencies.supportAnnotation
+    compile   presentationDependencies.rxAndroid
+    compile   presentationDependencies.rxJava
 }
